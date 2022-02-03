@@ -4,10 +4,159 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material icons setup -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- Link css file -->
     <link rel="stylesheet" href="style.css">
     <title>Library</title>
 </head>
 <body>
-    <div class="hello"></div>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                <img src="/images/logo.png" alt="">
+                <h2><span class="danger">Lib</span>rary</h2>
+            </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-outlined">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-icons-outlined">grid_view</span>
+                   
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">people</span>
+                        <h3>Students</h3>
+                    </a>
+                
+                <a href="#">
+                    <span class="material-icons-outlined">auto_stories</span>
+                    <h3>Books</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">logout</span>
+                    <h3>Logout</h3>
+                </a>
+                
+            </div>
+        </aside>
+
+        <!-------------------------- End of aside ------------------------->
+
+        <main>
+            <h1>Dashboard</h1>
+            <div class="date">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <div class="rentals">
+                    <span class="material-icons-outlined">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Books Rented</h3>
+                            <h1>123</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r=36></circle>
+                            </svg>
+                            <div class="number">
+                                <p>32%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+
+                <!-----------------End of Rentals------------------->
+                <div class="students">
+                    <span class="material-icons-outlined">face</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Active Students</h3>
+                            <h1>4500</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r=36></circle>
+                            </svg>
+                            <div class="number">
+                                <p>91%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+
+                <!-----------------End of Students------------------->
+                <div class="employees">
+                    <span class="material-icons-outlined">badge</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Active employees</h3>
+                            <h1>6</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r=36></circle>
+                            </svg>
+                            <div class="number">
+                                <p>50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+                </div>
+
+                <!-----------------End of Employees------------------->
+            </div>
+
+            
+
+            <div class="recent-rentals">
+                <h2>Recent Rentals</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Student's ID</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Harry Potter</td>
+                            <td>J. K. Rowling</td>
+                            <td>s20204</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#">Show all</a>
+            </div>
+        </main>
+
+
+        <!------------------------END OF MAIN --------------------->
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn"></button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
