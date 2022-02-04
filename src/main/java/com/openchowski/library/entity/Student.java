@@ -21,17 +21,18 @@ public class Student {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "person_id")
-    private int personId;
+    @OneToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     public Student() {
     }
 
-    public Student(int index, Date dateOfBirth, int age, int personId) {
+    public Student(int index, Date dateOfBirth, int age, Person person) {
         this.index = index;
         this.dateOfBirth = dateOfBirth;
         this.age = age;
-        this.personId = personId;
+        this.person = person;
     }
 
     public int getId() {
@@ -66,12 +67,12 @@ public class Student {
         this.age = age;
     }
 
-    public int getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Student {
                 ", index=" + index +
                 ", dateOfBirth=" + dateOfBirth +
                 ", age=" + age +
-                ", personId=" + personId +
+                ", person=" + person +
                 '}';
     }
 }

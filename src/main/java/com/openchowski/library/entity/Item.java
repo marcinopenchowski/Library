@@ -1,6 +1,7 @@
 package com.openchowski.library.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "item")
@@ -20,17 +21,36 @@ public class Item {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "publisherId")
-    private int publisherId;
+    @ManyToMany
+    @JoinTable(
+            name = "item_author",
+            joinColumns = @JoinColumn(name = "item_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
+    private List<Author> authorList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "borrow_item",
+            joinColumns = @JoinColumn(name = "item_id"),
+            inverseJoinColumns = @JoinColumn(name = "borrow_id")
+    )
+    private List<Borrow> borrowList;
+
+    @ManyToOne
+    @JoinColumn(name = "publisherId")
+    private Publisher publisher;
 
     public Item() {
     }
 
-    public Item(String title, String language, String status, int publisherId) {
+    public Item(String title, String language, String status, List<Author> authorList, List<Borrow> borrowList, Publisher publisher) {
         this.title = title;
         this.language = language;
         this.status = status;
-        this.publisherId = publisherId;
+        this.authorList = authorList;
+        this.borrowList = borrowList;
+        this.publisher = publisher;
     }
 
     public int getId() {
@@ -65,22 +85,40 @@ public class Item {
         this.status = status;
     }
 
-    public int getPublisherId() {
-        return publisherId;
+    public List<Author> getAuthorList() {
+        return authorList;
     }
 
-    public void setPublisherId(int publisherId) {
-        this.publisherId = publisherId;
+    public void setAuthorList(List<Author> authorList) {
+        this.authorList = authorList;
     }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public List<Borrow> getBorrowList() {
+        return borrowList;
+    }
+
+    public void setBorrowList(List<Borrow> borrowList) {
+        this.borrowList = borrowList;
+    }
+
 
     @Override
     public String toString() {
         return "Item{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", language='" + language + '\'' +
                 ", status='" + status + '\'' +
-                ", publisherId=" + publisherId +
+                ", authorList=" + authorList +
+                ", borrowList=" + borrowList +
+                ", publisher=" + publisher +
                 '}';
     }
 }

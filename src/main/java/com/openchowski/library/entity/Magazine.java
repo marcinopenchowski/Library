@@ -11,15 +11,16 @@ public class Magazine {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "item_id")
-    private int itemId;
+    @OneToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 
 
     public Magazine() {
     }
 
-    public Magazine(int itemId) {
-        this.itemId = itemId;
+    public Magazine(Item item) {
+        this.item = item;
     }
 
     public int getId() {
@@ -30,19 +31,20 @@ public class Magazine {
         this.id = id;
     }
 
-    public int getItemId() {
-        return itemId;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setItem(Item item) {
+        this.item = item;
     }
+
 
     @Override
     public String toString() {
         return "Magazine{" +
                 "id=" + id +
-                ", itemId=" + itemId +
+                ", item=" + item +
                 '}';
     }
 }
