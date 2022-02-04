@@ -1,6 +1,7 @@
 package com.openchowski.library.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -14,15 +15,25 @@ public class Author {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "person_id")
-    private int personId;
+    @OneToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
+
+    @ManyToMany
+    @JoinTable(
+            name = "item_author",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    private List<Item> itemList;
 
     public Author() {
     }
 
-    public Author(String country, int personId) {
+    public Author(String country, Person person, List<Item> itemList) {
         this.country = country;
-        this.personId = personId;
+        this.person = person;
+        this.itemList = itemList;
     }
 
     public int getId() {
@@ -41,12 +52,20 @@ public class Author {
         this.country = country;
     }
 
-    public int getPersonId() {
-        return personId;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     @Override
@@ -54,7 +73,8 @@ public class Author {
         return "Author{" +
                 "id=" + id +
                 ", country='" + country + '\'' +
-                ", personId=" + personId +
+                ", person=" + person +
+                ", itemList=" + itemList +
                 '}';
     }
 }

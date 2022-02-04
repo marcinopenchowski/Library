@@ -12,14 +12,15 @@ public class Article {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "itemId")
-    private int itemId;
+    @OneToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 
     public Article() {
     }
 
-    public Article(int itemId) {
-        this.itemId = itemId;
+    public Article(Item item) {
+        this.item = item;
     }
 
     public int getId() {
@@ -30,19 +31,19 @@ public class Article {
         this.id = id;
     }
 
-    public int getItemId() {
-        return itemId;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
-                ", itemId=" + itemId +
+                ", item=" + item +
                 '}';
     }
 }

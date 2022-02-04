@@ -1,22 +1,21 @@
 package com.openchowski.library.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "employee")
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "index")
-    private int index;
+    @Column(name = "seniority")
+    private int seniority;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private int dateOfBirth;
 
     @Column(name = "age")
     private int age;
@@ -25,11 +24,12 @@ public class Student {
     @JoinColumn(name = "person_id")
     private Person person;
 
-    public Student() {
+    public Employee() {
     }
 
-    public Student(int index, Date dateOfBirth, int age, Person person) {
-        this.index = index;
+
+    public Employee(int seniority, int dateOfBirth, int age, Person person) {
+        this.seniority = seniority;
         this.dateOfBirth = dateOfBirth;
         this.age = age;
         this.person = person;
@@ -43,19 +43,19 @@ public class Student {
         this.id = id;
     }
 
-    public int getIndex() {
-        return index;
+    public int getSeniority() {
+        return seniority;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setSeniority(int seniority) {
+        this.seniority = seniority;
     }
 
-    public Date getDateOfBirth() {
+    public int getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(int dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -77,9 +77,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
-                ", index=" + index +
+                ", seniority=" + seniority +
                 ", dateOfBirth=" + dateOfBirth +
                 ", age=" + age +
                 ", person=" + person +

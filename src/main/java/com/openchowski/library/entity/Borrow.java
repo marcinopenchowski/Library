@@ -2,6 +2,7 @@ package com.openchowski.library.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "borrow")
@@ -18,20 +19,31 @@ public class Borrow {
     @Column(name = "date_of_return")
     private Date dateOfReturn;
 
-    @Column(name = "employee_id")
-    private int employeeId;
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 
-    @Column(name = "student_id")
-    private int studentId;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToMany
+    @JoinTable(
+            name = "borrow_item",
+            joinColumns = @JoinColumn(name = "borrow_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    private List<Item> itemList;
 
     public Borrow() {
     }
 
-    public Borrow(Date dateOfBorrow, Date dateOfReturn, int employeeId, int studentId) {
+    public Borrow(Date dateOfBorrow, Date dateOfReturn, Employee employee, Student student, List<Item> itemList) {
         this.dateOfBorrow = dateOfBorrow;
         this.dateOfReturn = dateOfReturn;
-        this.employeeId = employeeId;
-        this.studentId = studentId;
+        this.employee = employee;
+        this.student = student;
+        this.itemList = itemList;
     }
 
     public int getId() {
@@ -58,20 +70,28 @@ public class Borrow {
         this.dateOfReturn = dateOfReturn;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     @Override
@@ -80,8 +100,9 @@ public class Borrow {
                 "id=" + id +
                 ", dateOfBorrow=" + dateOfBorrow +
                 ", dateOfReturn=" + dateOfReturn +
-                ", employeeId=" + employeeId +
-                ", studentId=" + studentId +
+                ", employee=" + employee +
+                ", student=" + student +
+                ", itemList=" + itemList +
                 '}';
     }
 }
