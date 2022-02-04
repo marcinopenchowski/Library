@@ -25,6 +25,15 @@
     --box-shadow: 0 1rem 3rem var(--color-dark);
 }
 
+.dark-theme-variables {
+    --color-lightbg: #181a1e;
+    --color-lightmode: #202528;
+    --color-dark: #edeffd;
+    --color-info-dark: #a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -210,7 +219,7 @@ aside .sidebar a:hover span {
 /*========================MAIN===================== */
 
 main {
-    margin-top: 1.4rem;
+    margin-top: 1.4 rem;
 }
 
 main .date {
@@ -439,4 +448,58 @@ main .recent-orders a{
     grid-template-columns: 2.6rem auto;
     gap: 1rem;
     margin-bottom: 1rem;
+}
+
+
+/* =========================MEDIA QUERIES ======================= */
+
+@media only screen and (max-width: 1200px){
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+
+    aside .logo h2{
+        display: none;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+    
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+    
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+
+    }
+
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+
+    }
+
+    main .recent-orders{
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+
+    main .recent-orders table {
+        width: 84vw;
+    }
+
+    main table thead tr th:last-child{
+        display: none;
+    }
+
+    main table tbody tr td:last-child {
+        display: none;
+    }
 }
