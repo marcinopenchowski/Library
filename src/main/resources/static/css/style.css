@@ -451,6 +451,29 @@ main .recent-orders a{
 }
 
 
+/* =========================Students List style ================= */
+
+main .students-table {
+    margin-top: 5rem;
+}
+
+main .students-table h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 30px;
+}
+
+main .students-table table {
+    background: var(--color-lightmode);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    width: 100%;
+    text-align: center;
+}
+
+main .students-table table thead tr {
+    font-size: 20px;
+}
 /* =========================MEDIA QUERIES ======================= */
 
 @media only screen and (max-width: 1200px){
