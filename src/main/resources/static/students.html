@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material icons setup -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="/src/main/resources/static/css/style.css">
+    <title>Students List</title>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                <img src="images/logo.png" alt="">
+                <h2><span class="danger">Lib</span>rary</h2>
+            </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-outlined">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="index.html" class="active">
+                    <span class="material-icons-outlined">grid_view</span>
+                   
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-outlined">people</span>
+                        <h3>Students</h3>
+                    </a>
+                
+                <a href="index.html">
+                    <span class="material-icons-outlined">auto_stories</span>
+                    <h3>Books</h3>
+                </a>
+                <a href="index.html">
+                    <span class="material-icons-outlined">settings</span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="index.html">
+                    <span class="material-icons-outlined">logout</span>
+                    <h3>Logout</h3>
+                </a>
+                
+            </div>
+        </aside>
+
+        <!-------------------------- End of aside ------------------------->
+
+        <main>
+            <div class="students-table">
+                <h2>Students List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Student's ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Filip</td>
+                            <td>Kiraga</td>
+                            <td>s20204</td>
+                        </tr>
+                        <tr>
+                            <td>Marcin</td>
+                            <td>Openchowski</td>
+                            <td>s20637</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn"><span class="material-icons-outlined">menu</span></button>
+                <div class="theme-toggler">
+                    <span class="material-icons-outlined active">light_mode</span>
+                    <span class="material-icons-outlined">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Filip</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/profile-picture.jpg">
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <script src="/src/main/resources/static/index.js"></script>
+</body>
+</html>
