@@ -2,25 +2,33 @@ package com.openchowski.library.controller;
 
 import com.openchowski.library.entity.Student;
 import com.openchowski.library.service.StudentService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/student")
 public class StudentController {
 
     private StudentService studentService;
 
+    @Autowired
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
-    public String findAll(Model model){
+    @GetMapping
+    public List<Student> findAll(){
+        return studentService.findAll();
+    }
 
-        List<Student> studentList = studentService.findAll();
-
-        model.addAttribute("studentList", studentList);
-        return "";
+    @GetMapping("/{id}")
+    public Optional<Student> findById(@PathVariable int id){
+        return studentService.findById(id);
     }
 
 }
