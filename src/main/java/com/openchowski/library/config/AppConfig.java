@@ -18,7 +18,7 @@ import java.beans.PropertyVetoException;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.openchowski.library")
 @PropertySource("classpath:application.properties")
-public class AppConfig {
+public class AppConfig{
 
     private Environment environment;
 
