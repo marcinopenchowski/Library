@@ -11,7 +11,7 @@ public class Publisher {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "id")
+    @Column(name = "name")
     private String name;
 
     public Publisher() {

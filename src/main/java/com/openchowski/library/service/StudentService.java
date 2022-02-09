@@ -25,4 +25,12 @@ public class StudentService {
     public Optional<Student> findById(int id) {
         return studentRepo.findById(id);
     }
+
+    public void deleteById(int id){
+        studentRepo.deleteById(id);
+    }
+
+    public Student save(Student student){
+        return studentRepo.save(student);
+    }
 }
